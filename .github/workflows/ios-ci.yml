@@ -1,0 +1,33 @@
+name: EmployeePensionsApp CI
+
+# Trigger: run on every push or pull request targeting main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build EmployeePensionsApp
+    runs-on: macos-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Print the Xcode version available on the runner
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      # Step 3: Build the project
+      # CODE_SIGNING_ALLOWED=NO skips code signing (not needed in CI)
+      - name: Build EmployeePensionsApp
+        run: |
+          xcodebuild \
+            -project EmployeePensionsApp/EmployeePensionsApp.xcodeproj \
+            -scheme EmployeePensionsApp \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            build
