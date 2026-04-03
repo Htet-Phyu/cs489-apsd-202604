@@ -12,7 +12,7 @@ A monorepo containing lab projects for **CS489: Applied Software Development**, 
 APSD-labs/
 ├── EmployeePensionsApp/       # Lab 2a — Employee Pension Enrollment
 ├── PAMSApp/                   # Lab 2b — Patient Appointment Management
-├── ContactsManagementApp/     # Lab 3  — Contacts Management (CRUD + Merge + JSON)
+├── ContactsManagementApp/     # Quiz1  — Contacts Management (CRUD + Merge + JSON)
 ├── ProductMgmtApp/            # Product Management App
 └── .github/
     └── workflows/             # CI/CD workflow definitions
@@ -55,7 +55,7 @@ A Patient Appointment Management System (PAMS) that loads, processes, and export
 
 ---
 
-### 3. ContactsManagementApp — Lab 3
+### 3. ContactsManagementApp — Quiz1
 
 A SwiftUI Contacts Management app with full CRUD, search, merge, and JSON export — adapted from a Java CLI assignment to a native Swift/Xcode tech stack.
 
