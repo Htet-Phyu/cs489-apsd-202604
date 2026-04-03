@@ -12,6 +12,7 @@ A monorepo containing lab projects for **CS489: Applied Software Development**, 
 APSD-labs/
 ├── EmployeePensionsApp/       # Lab 2a — Employee Pension Enrollment
 ├── PAMSApp/                   # Lab 2b — Patient Appointment Management
+├── ContactsManagementApp/     # Lab 3  — Contacts Management (CRUD + Merge + JSON)
 ├── ProductMgmtApp/            # Product Management App
 └── .github/
     └── workflows/             # CI/CD workflow definitions
@@ -54,7 +55,25 @@ A Patient Appointment Management System (PAMS) that loads, processes, and export
 
 ---
 
-### 3. ProductMgmtApp
+### 3. ContactsManagementApp — Lab 3
+
+A SwiftUI Contacts Management app with full CRUD, search, merge, and JSON export — adapted from a Java CLI assignment to a native Swift/Xcode tech stack.
+
+**Key Features**
+- Add, view, edit, and delete contacts
+- Search by name, company, or job title
+- Merge duplicate contacts (combines phone/email, avoids duplicates)
+- Export contacts as pretty-printed JSON
+- Preloaded sample data sorted by last name
+- MVVM architecture with clean folder structure
+
+**Technologies**
+- Swift, SwiftUI, Xcode
+- MVVM, Codable, FileManager
+
+---
+
+### 4. ProductMgmtApp
 
 A basic product management application for managing product records.
 

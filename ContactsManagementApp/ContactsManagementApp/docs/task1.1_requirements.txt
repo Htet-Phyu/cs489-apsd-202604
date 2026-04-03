@@ -1,0 +1,30 @@
+Contacts Management Application — Functional Requirements
+CS489: Applied Software Development
+
+1. The system shall allow users to add a new contact with first name, last name, company, and job title.
+
+2. The system shall allow users to add zero or more phone numbers to a contact, each with a label (e.g., home, work, mobile).
+
+3. The system shall allow users to add zero or more email addresses to a contact, each with a label (e.g., home, work).
+
+4. The system shall allow users to view a list of all contacts.
+
+5. The system shall display contact details including phone numbers and email addresses.
+
+6. The system shall allow users to search for contacts by first name, last name, company, or job title.
+
+7. The system shall allow users to update existing contact information.
+
+8. The system shall allow users to delete a contact.
+
+9. The system shall allow users to merge duplicate contacts into a single contact.
+
+10. The system shall combine phone numbers and email addresses when merging contacts, avoiding duplicates.
+
+11. The system shall store and manage multiple phone numbers and email addresses per contact.
+
+12. The system shall display contacts sorted in ascending order by last name.
+
+13. The system shall export the contact list in JSON format.
+
+14. The system shall load initial sample contact data when the application starts.
