@@ -30,8 +30,7 @@ ContactsManagementApp/
     │   └── MergePickerView.swift
     ├── docs/
     │   ├── requirements.txt
-    │   └── contacts.json               # Generated at runtime
-    └── screenshots/                    # Place submission screenshots here
+    └── screenshots/        
 ```
 
 ---
@@ -102,8 +101,7 @@ EmailAddress
 | Language   | Swift 5                 |
 | UI         | SwiftUI                 |
 | IDE        | Xcode                   |
-| Editor     | Cursor (AI-assisted)    |
-| Architecture | MVVM                 |
+| Architecture | MVVM                  |
 | Data format | JSON (Codable)         |
 
 ---
@@ -115,62 +113,14 @@ EmailAddress
 3. Select an iPhone simulator (e.g. iPhone 16).
 4. Press `⌘R` to build and run.
 
-> **Setup note:** Since files were created outside Xcode, you must add them manually:  
-> In Xcode, right-click each group folder → **Add Files to "ContactsManagementApp"…** → select the `.swift` files inside `Models/`, `ViewModels/`, `Services/`, and `Views/`. Make sure **"Add to targets: ContactsManagementApp"** is checked.
-
 ---
 
-## 📸 Screenshots to Take for Submission
-
-| Screenshot | What to capture |
-|---|---|
-| `xcode_project_structure.png` | Xcode left panel showing all groups/files |
-| `requirements_txt.png` | `docs/requirements.txt` open in Xcode or editor |
-| `app_contacts_list.png` | App running in simulator showing the contacts list |
-| `app_contact_detail.png` | Contact detail screen with phone/email sections |
-| `app_add_contact.png` | Add/Edit contact form |
-| `app_merge.png` | Merge picker sheet |
-| `json_output.png` | JSON output sheet visible in the app |
-| `xcode_console.png` | Xcode console showing the saved JSON file path |
-| `git_log.png` | Terminal showing `git log` or GitHub commits |
-
----
-
-## 🔁 Java CLI → SwiftUI Adaptation Notes
-
-- **Java `main()` → `@main` App struct**: The CLI entry point is replaced by `ContactsManagementAppApp.swift` using SwiftUI's `@main` lifecycle.
-- **Java classes → Swift structs**: Domain models use `struct` with `Codable` for type-safe JSON serialization.
-- **Java `ArrayList` → Swift `[Contact]`**: Collections are native Swift arrays managed in `ContactViewModel`.
-- **Java `System.out.println` → Xcode console**: JSON output is printed via `print()` and also displayed in a SwiftUI sheet.
-- **Java Scanner (CLI input) → SwiftUI Form**: User input is handled through native form views instead of command-line prompts.
-- **Java file I/O → `FileManager`**: JSON is written to the app's sandboxed Documents directory using Swift's `FileManager`.
-- **No test runner needed**: The app is validated visually by running on the iOS Simulator in Xcode.
-- **Same core requirements preserved**: CRUD, search, merge, sort, and JSON export are all fully implemented.
-
----
 
 ## 📋 Functional Requirements Summary
 
-See [`docs/requirements.txt`](ContactsManagementApp/docs/requirements.txt) for the full list (FR-01 through FR-12).
+See [`docs/requirements.txt`](ContactsManagementApp/docs/task1.1_requirements.txt) for the full list of functional requirements.
 
----
 
-## 📄 Git & Submission
-
-**Files to commit:**
-- All `.swift` source files
-- `docs/requirements.txt`
-- `docs/contacts.json` (if pre-generated)
-- `screenshots/` folder with your images
-- `README.md`
-
-**Files to exclude** (already handled by `.gitignore`):
-- `*.xcuserstate`
-- `xcuserdata/`
-- `DerivedData/`
-- `.DS_Store`
-
----
 
 ## 👤 Author
 
