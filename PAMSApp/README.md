@@ -40,5 +40,3 @@ The full path is shown in the UI after a successful write.
 ## Running
 
 Open `PAMSApp.xcodeproj` in Xcode, select a simulator or device, and run (⌘R). The list populates and the JSON file is created automatically on launch.
-
-> **Note:** After creating the new Swift files in Finder/Cursor, drag them into the Xcode project navigator so Xcode includes them in the build target.
