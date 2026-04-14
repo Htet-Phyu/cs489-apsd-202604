@@ -1,0 +1,38 @@
+#GraphQL object type.
+type Student {
+    id: ID
+    name: String
+    email: String
+    course: String
+    major: String
+    studentID: String
+}
+
+#type Query : read operations
+type Query {
+    students: [Student]
+    studentById(id: ID!): Student
+}
+
+#type Mutation
+type Mutation {
+
+    createStudent(
+        name: String!,
+        email: String!,
+        course: String!,
+        major: String!,
+        studentID: String!
+    ): Student
+
+    updateStudent(
+        id: ID!,
+        name: String!,
+        email: String!,
+        course: String!,
+        major: String!,
+        studentID: String!
+    ): Student
+
+    deleteStudent(id: ID!): String
+}
