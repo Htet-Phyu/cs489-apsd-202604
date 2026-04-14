@@ -28,11 +28,18 @@ The system manages student records and supports both REST and GraphQL APIs.
 ## 📂 Project Structure
 
 com.apsd.studentAPI
-├── controller (REST + GraphQL)
+├── controller        (REST + GraphQL)
+│   ├── StudentController
+│   └── StudentGraphQLController
 ├── service
+│   └── StudentService
 ├── repository
+│   └── StudentRepository
 ├── entity
+│   └── Student
 ├── exception
+│   ├── ResourceNotFoundException
+│   └── GlobalExceptionHandler
 └── StudentApiApplication
 
 ---
