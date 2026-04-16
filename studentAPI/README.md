@@ -1,4 +1,4 @@
-# Student API - Lab 6, Lab 7a & Lab 7b
+# Student API - Lab 6, Lab 7a, Lab 7b & Lab 9
 
 ## 📌 Overview
 This project is a backend application built using **Spring Boot** that demonstrates:
@@ -6,8 +6,9 @@ This project is a backend application built using **Spring Boot** that demonstra
 - Lab 6: Data Persistence using Spring Data JPA  
 - Lab 7a: RESTful Web API implementation  
 - Lab 7b: GraphQL API implementation  
+- Lab 9: Token-based Authentication & Role-based Authorization using Spring Security and JWT  
 
-The system manages student records and supports both REST and GraphQL APIs.
+The system manages student records and supports REST, GraphQL, and secure API access.
 
 ---
 
@@ -17,6 +18,8 @@ The system manages student records and supports both REST and GraphQL APIs.
 - Spring Web  
 - Spring Data JPA  
 - Spring GraphQL  
+- Spring Security  
+- JWT  
 - PostgreSQL  
 - Hibernate  
 - Swagger UI  
@@ -28,9 +31,9 @@ The system manages student records and supports both REST and GraphQL APIs.
 ## 📂 Project Structure
 
 com.apsd.studentAPI
-├── controller        (REST + GraphQL)
-│   ├── StudentController
-│   └── StudentGraphQLController
+├── controller
+│   ├── StudentController (REST)
+│   └── StudentGraphQLController (GraphQL)
 ├── service
 │   └── StudentService
 ├── repository
@@ -40,6 +43,24 @@ com.apsd.studentAPI
 ├── exception
 │   ├── ResourceNotFoundException
 │   └── GlobalExceptionHandler
+├── security
+│   ├── auth
+│   │   ├── AuthController
+│   │   ├── AuthService
+│   │   ├── LoginRequest
+│   │   ├── RegisterRequest
+│   │   └── AuthResponse
+│   ├── config
+│   │   ├── SecurityConfig
+│   │   └── OpenApiConfig
+│   ├── jwt
+│   │   ├── JwtService
+│   │   └── JwtAuthenticationFilter
+│   └── user
+│       ├── AppUser
+│       ├── Role
+│       ├── AppUserRepository
+│       └── CustomUserDetailsService
 └── StudentApiApplication
 
 ---
@@ -61,7 +82,7 @@ mvn spring-boot:run
 
 # 🌐 REST API (Lab 7a)
 
-Swagger:
+Swagger UI:
 http://localhost:8080/swagger-ui.html
 
 ---
@@ -73,9 +94,70 @@ http://localhost:8080/graphiql
 
 ---
 
+# 🔐 Security (Lab 9)
+
+## Authentication Flow
+
+1. Register user  
+2. Login → receive JWT token  
+3. Click Authorize in Swagger  
+4. Use token to access secured endpoints  
+
+---
+
+## Authentication Endpoints
+
+### Register
+POST /auth/register
+
+{
+  "name": "Admin User",
+  "email": "admin@test.com",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+
+---
+
+### Login
+POST /auth/login
+
+{
+  "email": "admin@test.com",
+  "password": "admin123"
+}
+
+Response:
+{
+  "token": "JWT_TOKEN"
+}
+
+---
+
+## Using JWT in Swagger
+
+Click Authorize and enter:
+
+Bearer YOUR_TOKEN
+
+---
+
+## Role-based Authorization
+
+| Endpoint | Access |
+|--------|--------|
+| GET /api/students | USER, ADMIN |
+| GET /api/students/{id} | USER, ADMIN |
+| POST /api/students | ADMIN only |
+| PUT /api/students/{id} | ADMIN only |
+| PATCH /api/students/{id} | ADMIN only |
+| DELETE /api/students/{id} | ADMIN only |
+
+---
+
 ## 🧪 GraphQL Operations
 
-### Get All
+### Get All Students
 query {
   students {
     id
@@ -87,7 +169,7 @@ query {
   }
 }
 
-### Create
+### Create Student
 mutation {
   createStudent(
     name: "Moe"
@@ -101,38 +183,16 @@ mutation {
   }
 }
 
-### Update
-mutation {
-  updateStudent(
-    id: 1
-    name: "Moe Updated"
-    email: "hphyu@miu.edu"
-    course: "ASD"
-    major: "SE"
-    studentID: "618073"
-  ) {
-    id
-    name
-  }
-}
-
-### Delete
-mutation {
-  deleteStudent(id: 1)
-}
-
 ---
 
-## 🖼️ Screenshots
+## 📸 Screenshots
 
-### REST
-Located in: screen-shorts/REST/
-
-### GraphQL
-Located in: screen-shorts/GraphQL/
+REST (Lab 7a): screen-shorts/REST/  
+GraphQL (Lab 7b): screen-shorts/GraphQL/  
+Security (Lab 9): screen-shorts/Security/  
 
 ---
 
 ## 🎯 Conclusion
 
-This project demonstrates both REST and GraphQL APIs fulfilling Lab 6, Lab 7a, and Lab 7b.
+This project demonstrates REST, GraphQL, and secure APIs using JWT and role-based authorization.
