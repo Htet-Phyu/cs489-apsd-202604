@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2869
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 How to implement security for Database-driven REST Web API using Spring Security and JWT\
+\pard\pardeftab720\sa280\partightenfactor0
+\cf0 CS489-2026-04A-04D-01:\'a0\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f1\b \cf0 Eleven Steps for how to implement security for database-driven RESTful Web API using Spring Security and JWT:
+\f0\b0 \
+1. Add <dependency>, spring-boot-starter-security and run the app and verify/confirm that Spring Security's AutoConfiguration is now enabled\
+2. Add the following <dependencies> for JWT Java libraries:\
+\uc0\u8195 \u8195 i. jjwt-api\
+\uc0\u8195 \u8195 ii. jjwt-impl\
+\uc0\u8195 \u8195 iii. jjwt-jackson\
+3. Implement Domain Entity model classes for User and Role, as ManyToMany\
+4. Implement @Repository interfaces for RoleRepository and UserRepository\
+5. Code the class named, AppUserDetailsService which implements the org.springframework.security.core.userdetails.UserDetailsService interface\
+6. Implement the JWTManagementUtilityService class - for generating, extracting/decoding and validating JWT tokens\
+7. Implement the JWTAuthFilter which extends OncePerRequestFilter and overrides doFilterInternal\
+8. Implement the SecurityConfiguration class, adding @Configuration and @EnableWebSecurity\
+9. Add the DTO class for UserAuthRequest having username and password fields\
+10. Implement the UserAuthController class with a method to authenticate user credentials and return JWT\
+11. Add to the @RestControllerAdvice, an exception handler method for BadCredentialsException\
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0}
